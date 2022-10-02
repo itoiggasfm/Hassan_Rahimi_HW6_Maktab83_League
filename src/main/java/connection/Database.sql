@@ -8,7 +8,7 @@ create table tbl_league
 
 create table tbl_club
 (
-    id int unique primary key,
+    id int UNIQUE PRIMARY KEY,
     name varchar,
     league_id int,
         constraint fk_leagueid
@@ -18,22 +18,29 @@ create table tbl_club
 
 create table tbl_match
 (
-    id int,
     league_id int,
-    club_id int,
+    id int,
+    first_club_view boolean,
+    first_club_id int,
+    first_leg boolean,
+    second_leg boolean,
     first_club_name varchar,
     second_club_name varchar,
     first_club_goals int,
     second_club_goals int,
-    win boolean,
-    lose boolean,
-    draw boolean,
-    point int,
+    first_club_win boolean,
+    first_club_draw boolean,
+    first_club_lose boolean,
+    first_club_point int,
+    second_club_win boolean,
+    second_club_draw boolean,
+    second_club_lose boolean,
+    second_club_point int,
         constraint fk_leagueid
             foreign key (league_id)
                 references tbl_league(id),
     constraint fk_clubid
-        foreign key (club_id)
+        foreign key (first_club_id)
             references tbl_club(id),
-    primary key (id, league_id)
+    primary key (league_id, id, first_club_id)
 );
