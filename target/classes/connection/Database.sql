@@ -20,10 +20,7 @@ create table tbl_match
 (
     league_id int,
     id int,
-    first_club_view boolean,
     first_club_id int,
-    first_leg boolean,
-    second_leg boolean,
     first_club_name varchar,
     second_club_name varchar,
     first_club_goals int,
