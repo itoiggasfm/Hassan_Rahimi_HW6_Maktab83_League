@@ -36,9 +36,20 @@ public class MatchService {
     }//end of method create
     //    ----------------------------------------------------------------------------------------------
 
-    public boolean validateGoal(String goal){
+    public boolean validateFootballGoal(String goal){
         if(Pattern.compile("\\d{1,2}").matcher(goal).matches())
            return true;
+        else{
+            System.out.println("Invalid number for goal");
+            return false;
+        }
+
+    }
+    //    ----------------------------------------------------------------------------------------------
+
+    public boolean validateVolleyballGoal(String goal){
+        if(Pattern.compile("[0-3]").matcher(goal).matches())
+            return true;
         else{
             System.out.println("Invalid number for goal");
             return false;
