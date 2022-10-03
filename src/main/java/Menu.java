@@ -286,18 +286,36 @@ public void addMatchIfNotHeld(){
 
     System.out.println("First club goals: ");
     String  firstClubGoals = input.next();
-    while (!matchService.validateGoal(firstClubGoals)){
-        System.out.println("First club goals: ");
-        firstClubGoals = input.next();
+    if(match.getLeagueID() == calID("football")){
+        while (!matchService.validateFootballGoal(firstClubGoals)){
+            System.out.println("First club goals: ");
+            firstClubGoals = input.next();
+        }
     }
+    else if(match.getLeagueID() == calID("volleyball")){
+        while (!matchService.validateVolleyballGoal(firstClubGoals)){
+            System.out.println("First club goals: ");
+            firstClubGoals = input.next();
+        }
+    }
+
     match.setFirstClubGoals(firstClubGoals);
 
     System.out.println("Second club goals: ");
     String secondClubGoals = input.next();
-    while (!matchService.validateGoal(secondClubGoals)){
-        System.out.println("Second club goals: ");
-        secondClubGoals = input.next();
+    if(match.getLeagueID() == calID("football")){
+        while (!matchService.validateFootballGoal(secondClubGoals)){
+            System.out.println("Second club goals: ");
+            secondClubGoals = input.next();
+        }
     }
+    else if(match.getLeagueID() == calID("volleyball")){
+        while (!matchService.validateVolleyballGoal(secondClubGoals)){
+            System.out.println("Second club goals: ");
+            secondClubGoals = input.next();
+        }
+    }
+
     match.setSecondClubGoals(secondClubGoals);
 
     calMatchPoint(match.getLeagueID(), Integer.parseInt(match.getFirstClubGoals()), Integer.parseInt(match.getSecondClubGoals()));
